@@ -1,1 +1,34 @@
 
+1. Set Matrix zero 
+Approach-First of all create two vectors rowmarker and columnmarker to store the positions of column and row where the element is zero.
+If element in either row marker or columnmarker is 0.Then make the element in the whole matrix 0.
+
+class Solution {
+public:
+     void setZeroes(vector<vector<int>>& matrix) {     
+        int rowsize=matrix.size(); 
+        int columnsize=matrix[0].size(); 
+        vector<int>rowmarker(rowsize,1);
+        vector<int>columnmarker(columnsize,1); 
+        for(int i=0;i<rowsize;i++)
+        {
+            for(int j=0;j<columnsize;j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    rowmarker[i]=0; 
+                    columnmarker[j]=0;
+                }
+            }
+        } 
+        for(int i=0;i<rowsize;i++)
+        {
+            for(int j=0;j<columnsize;j++)
+            {
+                if(rowmarker[i]==0 or columnmarker[j]==0)
+                    matrix[i][j]=0;
+             }
+        }
+        
+    }
+};
